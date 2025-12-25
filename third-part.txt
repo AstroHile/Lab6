@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Камень, Ножницы, Бумага</title>
+        <link rel="stylesheet" href="outfit.css">
+        <img src="bg.jpg" alt="Задний фон" class="Background">
+        <img id="winGif" src="win.gif" style="display:none; position:absolute; top:50%; left:50%; transform:translate(-50%, -50%);">
+        <img id="loseGif" src="lose.gif" style="display:none; position:absolute; top:50%; left:50%; transform:translate(-50%, -50%);">
+        <img id="tieGif" src="tie.gif" style="display:none; position:absolute; top:50%; left:50%; transform:translate(-50%, -50%);">
+    </head>
+    <body>
+        <h1>Выбери:</h1>
+        <div class="options">
+            <button onclick="playerChoice('камень')">Камень</button>
+            <button onclick="playerChoice('бумага')">Бумага</button>
+            <button onclick="playerChoice('ножницы')">Ножницы</button>
+        </div>
+        <div id="result">Итог</div>
+        <script src="script.js"></script>
+    </body>
+</html>
