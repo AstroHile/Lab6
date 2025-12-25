@@ -1,0 +1,52 @@
+const options = ['камень', 'бумага', 'ножницы']
+
+const win = new Audio('win.wav')
+const lose = new Audio('lose.wav')
+const tie = new Audio('tie.wav')
+
+const winGif = 'win.gif'
+const loseGif = 'lose.gif'
+const tieGif = 'tie.gif'
+
+function removeGif()
+{
+    document.getElementById('gifDisplay').style.display = 'none';
+    document.getElementsByClassName('Background')[0].style.backgroundImage = '';
+}
+
+function pcChoice()
+{
+    return options[Math.floor(Math.random() * options.length)]
+}
+
+function playerChoice(playerChoice)
+{
+    var compChoice = pcChoice()
+    let result = 'Ничья'
+
+    if ((playerChoice === 'камень' && compChoice === 'ножницы') || (playerChoice === 'бумага' && compChoice === 'камень') || (playerChoice === 'ножницы' && compChoice === 'бумага'))
+    {
+        result = 'Победа'
+        win.play()
+        document.getElementById('winGif').style.display = 'block'
+        document.getElementById('winGif').style.margin = 'auto'
+        setTimeout(removeGif, 2000)
+    }
+    else if (playerChoice !== compChoice)
+    {
+        result = 'Проигрыш'
+        lose.play()
+        document.getElementById('loseGif').style.display = 'block'
+        document.getElementById('loseGif').style.margin = 'auto'
+        setTimeout(removeGif, 2000);
+    }
+    else
+    {
+        tie.play()
+        document.getElementById('tieGif').style.display = 'block'
+        document.getElementById('tieGif').style.margin = 'auto'
+        setTimeout(removeGif, 2000);
+    }
+
+    document.getElementById('result').innerText = `Твой выбор: ${playerChoice}, выбор компьютера: ${compChoice}. ${result}`
+}
