@@ -1,0 +1,31 @@
+const options = ['камень', 'бумага', 'ножницы']
+
+function pcChoice()
+{
+    return options[Math.floor(Math.random() * options.length)]
+}
+
+function playerChoice(playerChoice)	
+{
+	var compChoice = pcChoice()
+	let result = 'Ничья'
+		
+	if ((playerChoice === 'камень' && compChoice === 'ножницы') || (playerChoice === 'бумага' && compChoice === 'камень') || (playerChoice === 'ножницы' && compChoice === 'бумага'))
+    {
+           result = 'Победа'
+           win.play()
+    }
+	
+    else if (playerChoice !== compChoice)
+    {
+          result = 'Проигрыш'
+          lose.play()
+    }
+	
+    else
+    {
+          tie.play()
+    }
+	
+    document.getElementById('result').innerText = `Твой выбор: ${playerChoice}, выбор компьютера: ${compChoice}. ${result}`
+}
